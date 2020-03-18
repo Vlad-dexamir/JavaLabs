@@ -2,6 +2,9 @@ package lab5;
 
 import java.awt.*;
 import java.io.*;
+import java.net.URI;
+
+import static java.awt.Desktop.getDesktop;
 
 public class ExternalOperations {
 
@@ -43,7 +46,10 @@ public class ExternalOperations {
         return null;
     }
 
-    public static void View() {
-        Desktop desktop = Desktop.getDesktop();
+    public static void View(Document document) throws IOException {
+        File file = new File(document.getLocation());
+        Desktop desktop;
+        getDesktop().browse(URI.create(document.getLocation()));
+        getDesktop().open(file);
     }
 }
