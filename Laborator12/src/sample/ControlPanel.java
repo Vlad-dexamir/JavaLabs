@@ -28,7 +28,7 @@ public class ControlPanel extends JPanel {
         add(createButton);
 
         createButton.addActionListener(e -> {
-            if(e.getSource() == createButton) {
+            if(e.getSource() == createButton && classNameField.getText().length() > 0) {
 
                 JComponent comp = null;
                 try {
